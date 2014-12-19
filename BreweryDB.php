@@ -62,7 +62,7 @@ class BreweryDB {
 
 				// Brewery Image
 				if (isset($breweryObj->data->images->medium)) {
-					$output .= '<div class="logo"><img src="' . $breweryObj->data->images->icon . '" /></div>';
+					$output .= '<div class="logo"><img src="' . $breweryObj->data->images->medium . '" /></div>';
 				}
 
 				// Brewery Name
@@ -133,9 +133,12 @@ class BreweryDB {
 
 				$output .= '<div id="beer-' . $beerObj->data->id . '" class="beer">';
 
+				//for zoom
+				if ( isset( $beerObj->data->labels->large ) )
+
 				// Label
-				if ( isset( $beerObj->data->labels->icon ) ) {
-					$output .= '<div class="label"><img src="' . $beerObj->data->labels->icon . '" /></div>';
+				if ( isset( $beerObj->data->labels->medium ) ) {
+					$output .= '<div class="label"><a href="' . $beerObj->data->labels->large . '"><img src="' . $beerObj->data->labels->medium . '" /></a></div>';
 				}
 
 				// Beer Name
